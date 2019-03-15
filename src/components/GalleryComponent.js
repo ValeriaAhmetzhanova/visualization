@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Media } from 'reactstrap';
+import { baseUrl } from '../shared/baseUrl';
 
 class Gallery extends Component {
 
     render() {
-        const gallery = this.props.pictures.map((picture) => {
+        const gallery = this.props.pictures.pictures.map((picture) => {
             return(
                 <div key={picture.id} className="col-12 mt-5">
                     <Media tag="li">
