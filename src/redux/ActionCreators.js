@@ -5,11 +5,13 @@ export const fetchPictures = () => (dispatch) => {
 
     dispatch(picturesLoading());
 
-    return fetch(baseUrl + 'visualizations', { mode: 'no-cors' })
+    return fetch(baseUrl + 'visualizations')
         .then(response => {
                 if (response.ok) {
+                    console.log(response);
                     return response;
                 } else {
+                    console.log(response);
                     var error = new Error('Error ' + response.status + ': ' + response.statusText);
                     error.response = response;
                     throw error;
@@ -20,7 +22,7 @@ export const fetchPictures = () => (dispatch) => {
                 throw errmess;
             })
         .then(response => response.json())
-        .then(pictures => dispatch(addPictures(pictures)))
+        .then(response => dispatch(addPictures(response)))
         .catch(error => dispatch(picturesFailed(error.message)));
 };
 
@@ -42,11 +44,13 @@ export const fetchNetworks = () => (dispatch) => {
 
     dispatch(networksLoading());
 
-    return fetch(baseUrl + 'networks', { mode: 'no-cors' })
+    return fetch(baseUrl + 'networks')
         .then(response => {
                 if (response.ok) {
+                    console.log(response);
                     return response;
                 } else {
+                    console.log(response);
                     var error = new Error('Error ' + response.status + ': ' + response.statusText);
                     error.response = response;
                     throw error;
@@ -56,9 +60,17 @@ export const fetchNetworks = () => (dispatch) => {
                 var errmess = new Error(error.message);
                 throw errmess;
             })
-        .then(response => response.json())
-        .then(networks => dispatch(addNetworks(networks)))
-        .catch(error => dispatch(networksFailed(error.message)));
+        .then(response => {
+            // console.log(response.json());
+            return response.json();
+        })
+        .then(response=> {
+            dispatch(addNetworks(response.networks))
+        })
+        .catch(error => {
+            console.log(error);
+            dispatch(networksFailed(error.message))
+        });
 };
 
 export const networksLoading = () => ({
