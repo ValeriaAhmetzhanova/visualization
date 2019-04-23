@@ -19,6 +19,16 @@
   color: white;
 }
 
+.selected {
+  position: fixed;
+}
+
+.go {
+  position: absolute;
+  top: 150px;
+  left: 80px;
+}
+
 .App-link {
   color: #61dafb;
 }

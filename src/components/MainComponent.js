@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Gallery from './GalleryComponent';
-import { PICTURES } from "../shared/pictures";
 import Header from './HeaderComponent';
 import Home from './HomeComponent';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter} from 'react-router-dom';
+import Networks from "./NetworksComponent";
+import { connect } from 'react-redux';
+import { fetchNetworks, fetchPictures } from '../redux/ActionCreators';
+
+const mapStateToProps = state => {
+    return {
+        pictures: state.pictures,
+        networks: state.networks
+    }
+};
+
+const mapDispatchToProps = dispatch => ({
+    fetchPictures: () => dispatch(fetchPictures()),
+    fetchNetworks: () => dispatch(fetchNetworks())
+});
 
 class Main extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            pictures: PICTURES
+
         };
+    }
+
+    componentDidMount() {
+        this.props.fetchPictures();
+        this.props.fetchNetworks();
     }
 
     render() {
@@ -28,7 +46,8 @@ class Main extends Component {
                 <Header/>
                 <Switch>
                     <Route path='/home' component={HomePage} />
-                    <Route exact path='/gallery' component={() => <Gallery pictures={this.state.pictures} />} />
+                    <Route exact path='/gallery' component={() => <Gallery pictures={this.props.pictures} />} />
+                    <Route exact path='/networks' component={() => <Networks networks={this.props.networks} />} />
                     <Redirect to="/home" />
                 </Switch>
             </div>
@@ -36,4 +55,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
