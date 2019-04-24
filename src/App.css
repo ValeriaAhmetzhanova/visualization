@@ -41,3 +41,75 @@
     transform: rotate(360deg);
   }
 }
+
+.jumbotron {
+  /* padding: 0px; */
+  position: relative;
+  overflow: hidden;
+  /* background-color:black; */
+}
+
+.anim-container {
+  /* padding: 0px; */
+  position: absolute;
+  /* overflow: hidden;
+  background-color:black; */
+  height: 100%;
+  width: 100%;
+  left: 0; 
+  top: 0;
+}
+
+/* .container {
+  padding: 0px;
+  position: absolute;
+  overflow: hidden;
+  background-color:black;
+  height: 100%;
+  width: 100%;
+} */
+
+/* .container {
+  margin-bottom: 10rem;
+} */
+
+canvas {
+  left: 0; 
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+}
+
+.network-selector {
+  float: left;
+}
+
+.step {
+  float: left;
+  text-align: left;
+}
+
+h5 {
+  float: left;
+}
+
+.slider-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.button-submit {
+  float: left;
+  margin-bottom: 10rem;
+  margin-top: 2rem;
+}
+
+.step-2 {
+  padding-bottom: 4rem;
+}
+
+.current-config {
+  /* margin-bottom: 4rem; */
+  float: left;
+}

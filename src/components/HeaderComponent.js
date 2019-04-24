@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron, Nav } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
+import CanvasComponent from './CanvasComponent'
+
 class Header extends Component {
 
     constructor(props) {
@@ -40,9 +42,14 @@ class Header extends Component {
                         </Collapse>
                     </div>
                 </Navbar>
-                <Jumbotron>
+                <Jumbotron className="anim">
+                    <div className="anim-container">
+                        {/* <canvas id='c'></canvas> */}
+                        <CanvasComponent />
+                    </div>
                     <div className="container">
                         <div className="row row-header">
+                            
                             <div className="col-12 col-sm-6">
                                 <h1>Feature Visualization</h1>
                                 <p>How neural networks build up their understanding of images</p>
