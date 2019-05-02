@@ -127,17 +127,13 @@ class Networks extends Component {
     }
     
     submit(net, l, c) {
-        const url = baseUrl + 'jobs/'
+        const url = baseUrl + 'jobs/';
         fetch(url, {
             method: 'POST',
             headers: {
-                // 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Access-Control-Request-Method':'POST',
                 'Access-Control-Request-Headers':'Content-Type'
-                // 'Access-Control-Allow-Origin': '*',
-                // 'Access-Control-Request-Headers':'Content-Type',
-                // 'Access-Control-Request-Method':'POST'
             },
             body: JSON.stringify({
                 network: net,
@@ -145,13 +141,12 @@ class Networks extends Component {
                 channel: c
             })
         }).then(res => {
-            console.log(res)
+            console.log(res);
             res.json()
         }).then(
           (result) => {
             console.log(result);
-            
-            // this.setState({submitEnabled:true})
+
             setTimeout(() => {
                 
                 this.setState({
@@ -167,7 +162,6 @@ class Networks extends Component {
           },
           (error) => {
             console.log(error);
-            // this.setState({submitEnabled:true})
             setTimeout(() => {this.setState({submitEnabled:true});}, 1000);
           }
         )
@@ -188,7 +182,7 @@ class Networks extends Component {
             <Slider.Handle value={value} {...restProps} />
           </Tooltip>
         );
-    }
+    };
 
 
     render() {
@@ -269,20 +263,10 @@ class Networks extends Component {
                                     {!this.state.submitEnabled &&
                                         <Spinner color="success" className="button-submit"/>
                                     }
-                                    
                                 </div>
                             </div>
                         }
                     </div>
-                    
-                    
-
-                    {/* {this.state.selectedLayer.depth>0 &&
-                        <ResultsGallery network={this.state.selectedNetwork.name} layer={this.state.selectedLayer.name}/>
-                    } */}
-
-                    
-
 
                 </div>
 
