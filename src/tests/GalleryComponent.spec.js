@@ -7,6 +7,6 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const component = shallow(<GalleryComponent />)
 
-it('render  <h5>', () => {
-    expect(component).toBeDefined()
+it('render  pictures', () => {
+    expect(component.find('h5'))
 })

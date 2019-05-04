@@ -7,6 +7,6 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const component = shallow(<NetworksComponent />)
 
-it('render  <h5>', () => {
-    expect(component).toBeDefined()
+it('render  selections', () => {
+    expect(component.find('DropdownItem'))
 })
