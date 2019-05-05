@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron, Nav } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import styles from './HeaderComponent.module.css';
 
 import CanvasComponent from './CanvasComponent'
 
@@ -43,7 +44,7 @@ class Header extends Component {
                     </div>
                 </Navbar>
                 <Jumbotron className="anim">
-                    <div className="anim-container">
+                    <div className={styles["anim-container"]}>
                         {/* <canvas id='c'></canvas> */}
                         <CanvasComponent />
                     </div>

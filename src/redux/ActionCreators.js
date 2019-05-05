@@ -62,7 +62,7 @@ export const fetchNetworks = () => (dispatch) => {
             })
         .then(response => {
             // console.log(response.json());
-            return response.json();
+            return response.clone().json();
         })
         .then(response=> {
             dispatch(addNetworks(response.networks))

@@ -8,8 +8,6 @@ class ResultsGallery extends React.Component {
     constructor(props){
         super(props);
 
-        
-
         this.state = {
             images: this.props.images,
             network: this.props.network,
@@ -81,9 +79,6 @@ class ResultsGallery extends React.Component {
               images: this.toImages(result.data)
             });
           },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
           (error) => {
             this.setState({
               isLoaded: true,
@@ -127,8 +122,6 @@ class ResultsGallery extends React.Component {
         );
     }
 }
-
-
 
 ResultsGallery.propTypes = {
     images: PropTypes.arrayOf(

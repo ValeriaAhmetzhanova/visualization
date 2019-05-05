@@ -1,0 +1,10 @@
+.anim-container {
+    /* padding: 0px; */
+    position: absolute;
+    /* overflow: hidden;
+    background-color:black; */
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
