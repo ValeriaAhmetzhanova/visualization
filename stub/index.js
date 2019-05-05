@@ -5,6 +5,8 @@ var cors = require('cors')();
 
 const app = express();
 
+console.log('!!!!!', process.env.BACKEND_URL);
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 app.use(cors);
