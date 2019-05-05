@@ -60,5 +60,7 @@
   "bugs": {
     "url": "https://github.com/ValeriaAhmetzhanova/visualization/issues"
   },
-  "homepage": "https://github.com/ValeriaAhmetzhanova/visualization#readme"
+  "homepage": "https://github.com/ValeriaAhmetzhanova/visualization#readme",
+  "dev:stub": "cross-env NODE_ENV=dev PORT=5001 BACKEND_URL=http://localhost npm start",
+  "dev:api": "cross-env NODE_ENV=dev PORT=3000 BACKEND_URL=http://169.60.115.34:5001/v1/ npm start"
 }
